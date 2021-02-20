@@ -11,7 +11,7 @@
 
 /* CPU clock */
 #ifndef CONFIG_CPU_FREQ_HZ
-# define CONFIG_CPU_FREQ_HZ	800000000
+# define CONFIG_CPU_FREQ_HZ	667000000
 #endif
 
 #define CONFIG_REMAKE_ELF
@@ -66,7 +66,6 @@
 	"setenv dfu_alt_info " \
 	"${kernel_image} ram 0x3000000 0x500000\\\\;" \
 	"${devicetree_image} ram 0x2A00000 0x20000\\\\;" \
-	"${ramdisk_image} ram 0x2000000 0x600000\0" \
 	"dfu_ram=run dfu_ram_info && dfu 0 ram 0\0" \
 	"thor_ram=run dfu_ram_info && thordown 0 ram 0\0"
 
@@ -76,7 +75,6 @@
 	"setenv dfu_alt_info " \
 	"${kernel_image} fat 0 1\\\\;" \
 	"${devicetree_image} fat 0 1\\\\;" \
-	"${ramdisk_image} fat 0 1\0" \
 	"dfu_mmc=run dfu_mmc_info && dfu 0 mmc 0\0" \
 	"thor_mmc=run dfu_mmc_info && thordown 0 mmc 0\0"
 
@@ -202,7 +200,6 @@
 	"pxefile_addr_r=0x2000000\0"    \
 	"kernel_addr_r=0x2000000\0"     \
 	"scriptaddr=0x3000000\0"        \
-	"ramdisk_addr_r=0x3100000\0"    \
 	DFU_ALT_INFO \
 	BOOTENV
 #endif
